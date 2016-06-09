@@ -52,40 +52,45 @@ Entity framework is an Database Object Relationship Manager. Simply put, it is a
 
 ## 4) Import EF
 Add these things to the project.json. Note that we are using SQLITE as our persistence provider.
-`````
-{
-	"dependencies": {
-		"Microsoft.EntityFrameworkCore.Tools": {
-			"type": "build",
-			"version": "1.0.0-preview1-final"
-		}
-		"EntityFramework.Sqlite": "7.0.0-rc1-final"
-	},
 
-	"tools": {
-		"Microsoft.EntityFrameworkCore.Tools": {
-			"imports": [ "portable-net451+win8" ],
-			"version": "1.0.0-preview1-final"
-		}
-	},
+- Open PackageManagerConsole
+- Type This
 
-	"frameworks": {
-		"netcoreapp1.0": {
-			"imports": [
-				"dotnet5.6",
-				"dnxcore50",
-				"portable-net45+win8"
-			]
-		}
-	},
-}
+> Install-Package Microsoft.EntityFrameworkCore -Pre
+> Install-Package Microsoft.EntityFrameworkCore.Tools -Pre
+> Install-Package Microsoft.EntityFrameworkCore.Sqlite -Pre
 
-`````
 
 ## 5) Define a database
 
 - Open ScoreModel.cs, this defines our single data table
 - Open ScoreContext.cs, this defines our database
+- Note that we ensure the database is create in Programe.cs
 
-## 6)
+## 6) Define our controller
+
+Next we must define a controller, this is responsible for serving the data to the client. Here is the controller life cycle.
+
+- Application receives a request
+- Application routes the request to a controller and action
+- Routing is managed by the Route filter
+- Magic happens, and the request becomes a strongly typed object or paramater array
+- Action returns an http result
+
+There are a number of extensibility points here. Namely :
+- Global Filters are 'pre' and 'post' request/result processors
+- Controller and Action filters are pre/post processors, but at a more graniliar level
+ - Filters for most everything: Caching, authentication, Sanity checks, ect
+- Routes are tied to the url path. You can be as complex as you want.
+- Most routes follow the http://{site.com}/{controller}/{optional:id} paradime with HTTPVERBS use to select to correct action
+- Verbs include GET, POST, PUT, DELETE
+- The full http request and response object is avaliaable, for things like JWT and BASIC authentication in the header.
+- I personally like to use http://{site.com}/{controller}/{action}/{optional:id} paradime and use POST for everything.
+ - This was due to Unity's WWW limitation
+
+
+
+
+
+
 
