@@ -1,2 +1,42 @@
-# DotNetCoreUnity3d
-Simple high score and chat service using Dot Net Core and Unity3d
+# DotNetCore Tutorial for Unity3d for absolute noobs
+
+
+## What
+- Cross Platform CLR
+- Runs from a folder on OSX or Linux
+- Stripped down high performance
+- Shared C# on client and server
+- WebApi / MVC is an http framework build on Core
+
+## Prerequesits 
+- https://www.microsoft.com/net/core#windows
+- MVC Docs
+- https://docs.asp.net/en/latest/tutorials/first-web-api.html
+
+## Goals
+- Build a simple HTTP server
+
+- SQL DB using EF
+	- https://medium.com/@pierrickblons/playing-around-with-entity-framework-7-and-asp-net5-ec5a5d8de549#.zcbn6qovx
+	- https://github.com/aspnet/EntityFramework/wiki
+	
+- High Score Controller
+- Chat Websocket service
+	- https://github.com/statianzo/Fleck
+	- https://github.com/StackExchange/NetGain
+
+- Unity3d client
+
+## 1) Init the thing
+- Install the sdk
+- Open VS (Or get another tutorial)
+- File/New Project .NET Core/WebApplication
+- Fucking uncheck Insights to the right
+- Select WebAPI
+- Fucking uncheck Host in the cloud
+- I suggest No Authentication (Identity works great and has many OAUTH extensions, but I prefer to do that all myself).
+- Close your eyes
+- Open PackageManagerConsole
+- Restore packages
+  - nugget is a package / dependency repository. Like a free asset store.
+> *PROTIP* Update-Package -reinstall will re-reference all dlls if shit breaks from moving shit
