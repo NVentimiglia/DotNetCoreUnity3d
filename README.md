@@ -2,10 +2,9 @@
 
 
 ## What is .NET Core
-- Cross Platform CLR
+- Cross Platform C#
 - Runs from a folder on OSX or Linux
 - Stripped down high performance
-- Shared C# on client and server
 - WebApi / MVC is an http framework build on Core
 
 ## Prerequesits 
