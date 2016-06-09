@@ -51,7 +51,7 @@ Entity framework is an Database Object Relationship Manager. Simply put, it is a
 
 
 ## 4) Import EF
-Add these things to the project.json
+Add these things to the project.json. Note that we are using SQLITE as our persistence provider.
 `````
 {
 	"dependencies": {
@@ -59,6 +59,7 @@ Add these things to the project.json
 			"type": "build",
 			"version": "1.0.0-preview1-final"
 		}
+		"EntityFramework.Sqlite": "7.0.0-rc1-final"
 	},
 
 	"tools": {
@@ -83,6 +84,8 @@ Add these things to the project.json
 
 ## 5) Define a database
 
+- Open ScoreModel.cs, this defines our single data table
 - Open ScoreContext.cs, this defines our database
-- 
+
+## 6)
 
