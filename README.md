@@ -13,7 +13,7 @@
 
 ## Good Links
 - https://weblog.west-wind.com/posts/2016/Jun/06/Publishing-and-Running-ASPNET-Core-Applications-with-IIS
-- https://medium.com/@pierrickblons/playing-around-with-entity-framework-7-and-asp-net5-ec5a5d8de549#.zcbn6qovx
+- https://docs.efproject.net/en/latest/cli/dotnet.html#installation
 - https://github.com/aspnet/EntityFramework/wiki
 - https://github.com/statianzo/Fleck
 - https://github.com/StackExchange/NetGain
@@ -29,9 +29,7 @@
 - Install the sdk
 - Open VS (Or get another tutorial)
 - File/New Project .NET Core/WebApplication
-- Fucking uncheck Insights to the right
 - Select WebAPI
-- Fucking uncheck Host in the cloud
 - I suggest No Authentication (Identity works great and has many OAUTH extensions, but I prefer to do that all myself).
 - Close your eyes
 - Open PackageManagerConsole
@@ -51,6 +49,40 @@ Run the app, you now have a web server running.
 ## 3) Entity Framework
 Entity framework is an Database Object Relationship Manager. Simply put, it is a strongly typed api for manipulating persistent data. With EF you have a DataContext (the database object and unit of work), DBSets or lists of tables in the database, and entities or classess which have properties which map to the columns of your tables. Everything in EF is code first, so, you write a C# file, close your eyes and you have a database. There are many other features such as navigational properties (table joins) and providers for other database types such as postgre.
 
-- 
 
+## 4) Import EF
+Add these things to the project.json
+`````
+{
+	"dependencies": {
+		"Microsoft.EntityFrameworkCore.Tools": {
+			"type": "build",
+			"version": "1.0.0-preview1-final"
+		}
+	},
+
+	"tools": {
+		"Microsoft.EntityFrameworkCore.Tools": {
+			"imports": [ "portable-net451+win8" ],
+			"version": "1.0.0-preview1-final"
+		}
+	},
+
+	"frameworks": {
+		"netcoreapp1.0": {
+			"imports": [
+				"dotnet5.6",
+				"dnxcore50",
+				"portable-net45+win8"
+			]
+		}
+	},
+}
+
+`````
+
+## 5) Define a database
+
+- Open ScoreContext.cs, this defines our database
+- 
 
