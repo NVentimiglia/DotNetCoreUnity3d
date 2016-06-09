@@ -8,9 +8,8 @@
 - WebApi / MVC is an http framework build on Core
 
 ## Prerequesits 
-- https://www.microsoft.com/net/core#windows
-- MVC Docs
-- https://docs.asp.net/en/latest/tutorials/first-web-api.html
+- GET IT https://www.microsoft.com/net/core#windows
+- READ IT https://docs.asp.net/en/latest/tutorials/first-web-api.html
 
 ## Goals
 - Build a simple HTTP server
