@@ -1,7 +1,7 @@
 # DotNetCore Tutorial for Unity3d for absolute noobs
 
 
-## What
+## What is .NET Core
 - Cross Platform CLR
 - Runs from a folder on OSX or Linux
 - Stripped down high performance
