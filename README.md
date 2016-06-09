@@ -37,4 +37,5 @@
 - Open PackageManagerConsole
 - Restore packages
   - nugget is a package / dependency repository. Like a free asset store.
+  - 
 > *PROTIP* Update-Package -reinstall will re-reference all dlls if shit breaks from moving shit
