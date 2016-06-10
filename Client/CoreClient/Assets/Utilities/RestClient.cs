@@ -1,9 +1,9 @@
 using System;
-using UnityEngine;
+using System.Text;
 using UnityEngine.Experimental.Networking;
 
 /// <summary>
-/// Http client
+/// Http Client which fixes bugs in UnityWebRequest
 /// </summary>
 /// <typeparam name="T"></typeparam>
 public class RestClient
@@ -20,21 +20,43 @@ public class RestClient
 
     public UnityWebRequest Get()
     {
-        return UnityWebRequest.Get(UrlBase);
+        UnityWebRequest task = new UnityWebRequest(UrlBase);
+        task.downloadHandler = new DownloadHandlerBuffer();
+        task.method = UnityWebRequest.kHttpVerbGET;
+        task.Send();
+        return task;
     }
 
     public UnityWebRequest Get(string id)
     {
-        return UnityWebRequest.Get(string.Format("{0}/{1}", UrlBase, id));
+        UnityWebRequest task = new UnityWebRequest(string.Format("{0}/{1}", UrlBase, id));
+        task.downloadHandler = new DownloadHandlerBuffer();
+        task.method = UnityWebRequest.kHttpVerbGET;
+        return task;
+    }
+
+    public UnityWebRequest Post()
+    {
+        UnityWebRequest task = new UnityWebRequest(UrlBase);
+        task.downloadHandler = new DownloadHandlerBuffer();
+        task.method = UnityWebRequest.kHttpVerbPOST;
+        return task;
     }
 
     public UnityWebRequest Post(string payload)
     {
-        return UnityWebRequest.Post(UrlBase, payload);
+        UnityWebRequest task = new UnityWebRequest(UrlBase);
+        task.uploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(payload));
+        task.downloadHandler = new DownloadHandlerBuffer();
+        task.method = UnityWebRequest.kHttpVerbPOST;
+        return task;
     }
 
     public UnityWebRequest Delete(string id)
     {
-        return UnityWebRequest.Delete(string.Format("{0}/{1}", UrlBase, id));
+        UnityWebRequest task = new UnityWebRequest(string.Format("{0}/{1}", UrlBase, id));
+        task.downloadHandler = new DownloadHandlerBuffer();
+        task.method = UnityWebRequest.kHttpVerbDELETE;
+        return task;
     }
 }

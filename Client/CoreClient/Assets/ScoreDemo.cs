@@ -1,22 +1,24 @@
 using System;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Experimental.Networking;
 
 
 public class ScoreDemo : MonoBehaviour
 {
     public string ServerPath = "http://localhost:58459/api/Score";
 
-    public RestClient Client;
+    public RestClient _client;
+    public RestClient Client
+    {
+        get
+        {
+            return _client = _client ?? new RestClient(ServerPath);
+        }
+    }
 
     public string UserName;
     public string Points;
-
-    void Awake()
-    {
-        Client = new RestClient("http://localhost:58459/api/Score");
-    }
-
 
     [ContextMenu("Get High Scores")]
     public void GetScores()
@@ -47,9 +49,11 @@ public class ScoreDemo : MonoBehaviour
         Debug.Log("GetScoresAsync...");
         yield return 1;
 
-        //TODO, pass in an filter
-        var task = Client.Get();
-        yield return task.Send();
+        
+        UnityWebRequest task = Client.Get();
+
+        //start the task and wait for it to complete
+        yield return task;
 
         if (task.isError)
         {
@@ -73,9 +77,10 @@ public class ScoreDemo : MonoBehaviour
         Debug.Log("GetScoreAsync...");
         yield return 1;
 
-        var task = Client.Get(UserName);
-        yield return task.Send();
+        UnityWebRequest task = Client.Get(UserName);
 
+        yield return task.Send();
+        
         if (task.isError)
         {
             Debug.LogError(task.error);
@@ -97,7 +102,8 @@ public class ScoreDemo : MonoBehaviour
         Debug.Log("GetScoresAsync...");
         yield return 1;
 
-        var task = Client.Get(UserName);
+        UnityWebRequest task = Client.Post(UserName);
+
         yield return task.Send();
 
         if (task.isError)
@@ -117,7 +123,8 @@ public class ScoreDemo : MonoBehaviour
         Debug.Log("DeleteScoreAsync...");
         yield return 1;
 
-        var task = Client.Delete(UserName);
+        UnityWebRequest task = Client.Delete(UserName);
+
         yield return task.Send();
 
         if (task.isError)
