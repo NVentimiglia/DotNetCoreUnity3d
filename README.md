@@ -34,8 +34,6 @@
 - Restore packages
   - nugget is a package / dependency repository. Like a free asset store.
   
-> *PROTIP* Update-Package -reinstall will re-reference all dlls if shit breaks from moving shit
-
 Run the app, you now have a web server running.
 
 ## 2) Configuration
@@ -58,6 +56,7 @@ Add these things to the project.json. Note that we are using SQLITE as our persi
 > Install-Package Microsoft.EntityFrameworkCore.Tools -Pre
 > Install-Package Microsoft.EntityFrameworkCore.Sqlite -Pre
 
+> *PROTIP* Update-Package -reinstall will re-reference all dlls things break
 
 ## 5) Define a database
 
