@@ -53,7 +53,9 @@ Add these things to the project.json. Note that we are using SQLITE as our persi
 - Type This
 
 > Install-Package Microsoft.EntityFrameworkCore -Pre
+
 > Install-Package Microsoft.EntityFrameworkCore.Tools -Pre
+
 > Install-Package Microsoft.EntityFrameworkCore.Sqlite -Pre
 
 > *PROTIP* Update-Package -reinstall will re-reference all dlls things break
