@@ -18,9 +18,9 @@
 	
 ## Goals
 - Build a simple HTTP server
-- SQL DB using EF
+- SQL Database using Entity Framework
 - High Score Controller
-- Chat Websocket service
+- Chat Websocket service (TODO)
 - Unity3d client
 
 ## 1) Init the thing
