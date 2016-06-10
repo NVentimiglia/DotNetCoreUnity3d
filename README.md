@@ -15,8 +15,6 @@
 - https://weblog.west-wind.com/posts/2016/Jun/06/Publishing-and-Running-ASPNET-Core-Applications-with-IIS
 - https://docs.efproject.net/en/latest/cli/dotnet.html#installation
 - https://github.com/aspnet/EntityFramework/wiki
-- https://github.com/statianzo/Fleck
-- https://github.com/StackExchange/NetGain
 	
 ## Goals
 - Build a simple HTTP server
