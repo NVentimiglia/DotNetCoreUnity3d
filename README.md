@@ -16,12 +16,14 @@
 - https://docs.efproject.net/en/latest/cli/dotnet.html#installation
 - https://github.com/aspnet/EntityFramework/wiki
 - https://medium.com/@turowicz/websockets-in-asp-net-5-6094319a15a2#.kejwy8ync
+- www.getpostman.com a http debug client that runs in chrome (for testing)
+- https://github.com/hakobera/Simple-WebSocket-Client websocket chrome client (for testing)
 	
 ## Goals
 - Build a simple HTTP server
 - SQL Database using Entity Framework
 - High Score Controller
-- Chat Websocket service (TODO)
+- Chat Websocket service
 - Unity3d client
 
 ## 1) Init the thing
@@ -47,10 +49,12 @@ Run the app, you now have a web server running.
 Entity framework is an Database Object Relationship Manager. Simply put, it is a strongly typed api for manipulating persistent data. With EF you have a DataContext (the database object and unit of work), DBSets or lists of tables in the database, and entities or classes which have properties which map to the columns of your tables. Everything in EF is code first, so, you write a C# file, close your eyes and you have a database. There are many other features such as navigational properties (table joins) and providers for other database types such as postgre.
 
 
-## 4) Import EF
-Add these things to the project.json. Note that we are using SQLITE as our persistence provider.
+## 4) Import Entity Framework
+
+We will use something called Nuget to import dependencies. 
 
 - Open PackageManagerConsole
+
 - Type This
 
 > Install-Package Microsoft.EntityFrameworkCore -Pre
@@ -100,9 +104,28 @@ There are a number of extensibility points here. Namely :
 
 ## 8) Setup socket for real time chat
 
-- Uuuh, not supported yet ?
+- Get the Nuget package
+- 
+> Import-Package Microsoft.AspNetCore.WebSockets.Server -Pre
 
+- You will need to define a handler for websocket requests (ChatService.cs and ChatClient.cs).
 
+- You will also need to register this with the web app in Startup.cs
+
+````
+            //enable web sockets
+            app.UseWebSockets();
+
+            //wire our chat service
+            app.Use(ChatService.ChatHandler);
+
+            // this enables routing / controller framework
+            app.UseMvc();
+````
+
+# Unity Example
+
+look at the code.
 
 
 
