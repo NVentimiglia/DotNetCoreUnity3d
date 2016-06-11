@@ -1,1 +1,5 @@
 Client/CoreClient/Temp/
+Client/CoreClient/Library/
+Library
+Temp
+*.userprefs

@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.0",
-    "signature": "3f0e7c514519dae35461ed9b2b9afcbf7ea37683"
+    "signature": "7f5dcabea41313f71cdccc5cd9e51407ff22038b"
   },
   "compilationOptions": {
     "defines": [
@@ -21,6 +21,7 @@
           "Microsoft.AspNetCore.Mvc": "1.0.0-rc2-final",
           "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0-rc2-final",
           "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-rc2-final",
+          "Microsoft.AspNetCore.WebSockets.Server": "0.1.0-rc2-final",
           "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.0.0-rc2-final",
           "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0-rc2-final",
           "Microsoft.Extensions.Configuration.Json": "1.0.0-rc2-final",
@@ -707,6 +708,42 @@
         },
         "compile": {
           "lib/netstandard1.3/Microsoft.AspNetCore.Server.Kestrel.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.WebSockets.Protocol/0.1.0-rc2-final": {
+        "dependencies": {
+          "System.Diagnostics.Contracts": "4.0.1-rc2-24027",
+          "System.Globalization": "4.0.11-rc2-24027",
+          "System.IO": "4.1.0-rc2-24027",
+          "System.Linq": "4.1.0-rc2-24027",
+          "System.Net.WebSockets": "4.0.0-rc2-24027",
+          "System.Resources.ResourceManager": "4.0.1-rc2-24027",
+          "System.Runtime.Extensions": "4.1.0-rc2-24027",
+          "System.Runtime.InteropServices": "4.1.0-rc2-24027",
+          "System.Security.Cryptography.Algorithms": "4.1.0-rc2-24027",
+          "System.Text.Encoding.Extensions": "4.0.11-rc2-24027",
+          "System.Threading": "4.0.11-rc2-24027",
+          "System.Threading.Tasks": "4.0.11-rc2-24027",
+          "System.Threading.Timer": "4.0.1-rc2-24027"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.AspNetCore.WebSockets.Protocol.dll": {}
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.AspNetCore.WebSockets.Protocol.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.WebSockets.Server/0.1.0-rc2-final": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Extensions": "1.0.0-rc2-final",
+          "Microsoft.AspNetCore.WebSockets.Protocol": "0.1.0-rc2-final",
+          "Microsoft.Extensions.Options": "1.0.0-rc2-final"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.AspNetCore.WebSockets.Server.dll": {}
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.AspNetCore.WebSockets.Server.dll": {}
         }
       },
       "Microsoft.AspNetCore.WebUtilities/1.0.0-rc2-final": {
@@ -3663,6 +3700,16 @@
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-ojeLfBZ+H7uVImuzqErcNv8hN8Z8+k99jSl2U+cwEMddJXnzqjND20NlwNW/g4/3roLB3F3+6kYTy3wWMYFQCg=="
+    },
+    "Microsoft.AspNetCore.WebSockets.Protocol/0.1.0-rc2-final": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-c1bCg8H4tqFFSp+5L5/oy+Vhi83F5QXiW5fWPTiQN+aCs2hAw85PpK1j4WiJiroNsEdIqRmSkHkv7kj2RODECQ=="
+    },
+    "Microsoft.AspNetCore.WebSockets.Server/0.1.0-rc2-final": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-utzWBa7POJQrF2UfYI/SM8J2bBX+P29XebkomNXUHEYaKZKN5IZk21icirO+EzKKfQIGzzZHBg/KMq4V1KBUeg=="
     },
     "Microsoft.AspNetCore.WebUtilities/1.0.0-rc2-final": {
       "type": "package",

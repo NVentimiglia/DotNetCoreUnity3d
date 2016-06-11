@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -56,7 +54,16 @@ namespace CoreWeb1
 
             app.UseApplicationInsightsExceptionTelemetry();
 
+            //enable web sockets
+            app.UseWebSockets();
+
+            //wire our chat service
+            app.Use(ChatService.ChatHandler);
+
+            // this enables routing / controller framework
             app.UseMvc();
         }
+
+        
     }
 }
