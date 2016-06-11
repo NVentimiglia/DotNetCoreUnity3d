@@ -78,7 +78,7 @@ We will use something called Nuget to import dependencies.
 ## 5) Setup socket for real time chat
 
 - Get the Nuget package
-- 
+
 > Import-Package Microsoft.AspNetCore.WebSockets.Server -Pre
 
 - You will need to define a handler for websocket requests (ChatService.cs and ChatClient.cs).
