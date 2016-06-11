@@ -14,16 +14,20 @@ namespace CoreWeb1
 
         public static async Task ChatHandler(HttpContext http, Func<Task> next)
         {
+            // is this http request a WS request ?
             if (http.WebSockets.IsWebSocketRequest)
             {
+                //Accept handshake
                 var webSocket = await http.WebSockets.AcceptWebSocketAsync();
                 
+                // sanity for failed handshake
                 if (webSocket != null && webSocket.State == WebSocketState.Open)
                 {
-                    //make a new client
+                    //make a new client reference
                     var client = new ChatClient(webSocket, bytes =>
                     {
-                        //broadcast new message
+                        //receive handler
+                        //here we just broadcast the new message to everyone
                         lock (_lock)
                         {
                             _connections.ForEach(o => o.Send(bytes));
@@ -36,10 +40,12 @@ namespace CoreWeb1
                         _connections.Add(client);
                     }
 
-                    //while open
+                    //while open 'Update' (read the incoming socket stream)
                     await client.UpdateAsync();
+                   
+                    //note, this returns only when the stream is closed
                     
-                    //remove on close
+                    //dispose, remove, close
                     client.Dispose();
                     lock (_lock)
                     {
