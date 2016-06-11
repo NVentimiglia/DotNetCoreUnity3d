@@ -84,7 +84,7 @@ We will use something called Nuget to import dependencies.
 - You will need to define a handler for websocket requests (ChatService.cs and ChatClient.cs).
 
 - You will also need to register this with the web app in Startup.cs
--
+
 - You can test it (Websocket extension above) by connectin to ws://{localhost:port}
 
 - The chat service is a simple broadcast relay
