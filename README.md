@@ -15,6 +15,7 @@
 - https://weblog.west-wind.com/posts/2016/Jun/06/Publishing-and-Running-ASPNET-Core-Applications-with-IIS
 - https://docs.efproject.net/en/latest/cli/dotnet.html#installation
 - https://github.com/aspnet/EntityFramework/wiki
+- https://medium.com/@turowicz/websockets-in-asp-net-5-6094319a15a2#.kejwy8ync
 	
 ## Goals
 - Build a simple HTTP server
@@ -98,7 +99,8 @@ There are a number of extensibility points here. Namely :
 - Delete http://{url}/api/Score/{id}
 
 ## 8) Setup socket for real time chat
-- TODO
+
+- Uuuh, not supported yet ?
 
 
 
