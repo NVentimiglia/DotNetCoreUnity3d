@@ -37,7 +37,7 @@ public class MonoHelper : MonoBehaviour
     /// <summary>
     /// Registers an action to invoke on the main thread
     /// </summary>
-    /// <param name="func"></param>
+    /// <param name="func">the action to call</param>
     public static void InvokeOnMainThread(Action func)
     {
         EnsureInitialized();
