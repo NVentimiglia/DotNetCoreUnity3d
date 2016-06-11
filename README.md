@@ -29,7 +29,7 @@
 - https://github.com/hakobera/Simple-WebSocket-Client websocket chrome client (for testing)
 - http://blogs.msdn.com/b/pfxteam/archive/2012/02/12/10266983.aspx
 
-## 1) Facts
+## Facts
 - All apps in dotnetcore are glorified console apps. Program.cs is our entry point.
 - In Main, we configure our web server. Check out my comments
 - In Startup we configure the MVC/WebApi part of the app. Check out my comments.
@@ -38,11 +38,8 @@
  - Infrastructure includes utilities and componenets
  - Modules includes services, controllers, and domain logic
 
-## 2) Entity Framework
-Entity framework is an Database Object Relationship Manager. Simply put, it is a strongly typed api for manipulating persistent data. With EF you have a DataContext (the database object and unit of work), DBSets or lists of tables in the database, and entities or classes which have properties which map to the columns of your tables. Everything in EF is code first, so, you write a C# file, close your eyes and you have a database. There are many other features such as navigational properties (table joins) and providers for other database types such as postgre.
-
-
-### Import Entity Framework Using Nuget
+## Entity Framework
+Entity framework is an Database Object Relationship Manager. Simply put, it is a strongly typed api for manipulating and persistent data. With EF you have a DataContext (the database object and unit of work), DBSets or lists of tables in the database, and entities or classes which have properties which map to the columns of your tables. Everything in EF is code first, so, you write a C# file, close your eyes and you have a database. There are many other features such as navigational properties (table joins) and providers for other database types such as postgres.
 
 We will use something called Nuget to import dependencies. 
 
@@ -58,7 +55,7 @@ We will use something called Nuget to import dependencies.
 
 > *PROTIP* Update-Package -reinstall will re-reference all dlls if things break
 
-## 3) Define a database
+### Define a database
 
 - Open ScoreModel.cs, this defines our single data table
 - Open ScoreContext.cs, this defines our database
@@ -66,7 +63,7 @@ We will use something called Nuget to import dependencies.
 - Generally the database would exist outside in a shared domain and reference models from all domains.
 - The ScoreContext defines that it is using SQLite, this should really be handled by Startup
 
-## 4) Test it
+## Test it
 
 - On the project file, right click, options, set the default url to point to our ScoreController
 - I use POSTMON chrome extension, now make up some HTTP requests to the server
@@ -76,7 +73,7 @@ We will use something called Nuget to import dependencies.
 - POST http://{url}/api/Score/ (with Json Body
 - Delete http://{url}/api/Score/{id}
 
-## 5) Setup socket for real time chat
+## Setup socket for real time chat
 
 - Get the Nuget package
 
@@ -91,7 +88,7 @@ We will use something called Nuget to import dependencies.
 - The chat service is a simple broadcast relay
 
 
-# Unity Example
+## Unity Example
 
 look at the code. Everything runs from Debug ContextMenu commands on the debug behaviour instance (on the main camera). Running the app is required for the chat demo due to main thread callback mechinism.
 
