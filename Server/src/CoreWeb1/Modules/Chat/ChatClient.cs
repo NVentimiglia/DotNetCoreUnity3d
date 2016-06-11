@@ -9,7 +9,8 @@ namespace CoreWeb1.Modules.Chat
     ///<summary>Minmalistic Websocket instance handler</summary>
     public class ChatClient : IDisposable
     {
-    ///<summary>Is Valid for sending / receiving</summary>
+        
+        ///<summary>Is Valid for sending / receiving</summary>
         public bool IsOpen
         {
             get { return socket != null && !error && socket.State == WebSocketState.Open; }
