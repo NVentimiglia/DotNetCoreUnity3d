@@ -5,7 +5,7 @@
 - Cross Platform C#
 - Runs from a folder on OSX or Linux
 - Stripped down high performance
-- WebApi / MVC is an http framework build on Core
+- WebApi / MVC is an http framework built on Core
 
 ## What is this ?
 - A minimalistic HTTP server with...
