@@ -55,7 +55,7 @@ We will use something called Nuget to import dependencies.
 
 > Install-Package Microsoft.EntityFrameworkCore.Sqlite -Pre
 
-> *PROTIP* Update-Package -reinstall will re-reference all dlls things break
+> *PROTIP* Update-Package -reinstall will re-reference all dlls if things break
 
 ## 3) Define a database
 
@@ -92,7 +92,7 @@ We will use something called Nuget to import dependencies.
 
 # Unity Example
 
-look at the code. Everything runs from Debug ContextMenu commands on the debug behaviour instance (on the main camera).
+look at the code. Everything runs from Debug ContextMenu commands on the debug behaviour instance (on the main camera). Running the app is required for the chat demo due to main thread callback mechinism.
 
 
 
