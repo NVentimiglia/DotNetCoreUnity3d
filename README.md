@@ -27,6 +27,7 @@
 - https://medium.com/@turowicz/websockets-in-asp-net-5-6094319a15a2#.kejwy8ync
 - www.getpostman.com a http debug client that runs in chrome (for testing)
 - https://github.com/hakobera/Simple-WebSocket-Client websocket chrome client (for testing)
+- http://blogs.msdn.com/b/pfxteam/archive/2012/02/12/10266983.aspx
 
 ## 1) Facts
 - All apps in dotnetcore are glorified console apps. Program.cs is our entry point.
