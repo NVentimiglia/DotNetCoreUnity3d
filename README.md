@@ -100,20 +100,7 @@ There are a number of extensibility points here. Namely :
 
 ## 8) Setup socket for real time chat
 
-
-Install the package via the package manager console
-
-> Install-Package Microsoft.AspNetCore.Server.WebListener -Pre
-
-
-In Startup.cs configure the web socket in the Configure method
-
-````
-            //make sure chat is above MVC
-            app.UseChat();
-
-            app.UseMvc();
-````
+- Uuuh, not supported yet ?
 
 
 
