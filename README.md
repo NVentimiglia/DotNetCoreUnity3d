@@ -31,12 +31,10 @@
 
 ## Facts
 - All apps in dotnetcore are glorified console apps. Program.cs is our entry point.
-- In Main, we configure our web server. Check out my comments
-- In Startup we configure the MVC/WebApi part of the app. Check out my comments.
-- For the most part you can leave this alone even in advanced scenarios.
-- Besides Startup and Program.cs code exists in /Infrastructure and /Modules
+- In Startup.cs we configure the MVC/WebApi part of the app.
+- Besides Startup and Program.cs code exists as /Infrastructure or /Modules
  - Infrastructure includes utilities and componenets
- - Modules includes services, controllers, and domain logic
+ - Modules includes domain services, controllers, and models
 
 ## Entity Framework
 Entity framework is an Database Object Relationship Manager. Simply put, it is a strongly typed api for manipulating and persistent data. With EF you have a DataContext (the database object and unit of work), DBSets or lists of tables in the database, and entities or classes which have properties which map to the columns of your tables. Everything in EF is code first, so, you write a C# file, close your eyes and you have a database. There are many other features such as navigational properties (table joins) and providers for other database types such as postgres.
