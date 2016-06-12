@@ -58,7 +58,7 @@ We will use something called Nuget to import dependencies.
 
 - Open ScoreModel.cs, this defines our single data table
 - Open ScoreContext.cs, this defines our database
-- Note that we ensure the database is create in Programe.cs
+- Note that we ensure the database is create in Program.cs
 - Generally the database would exist outside in a shared domain and reference models from all domains.
 - The ScoreContext defines that it is using SQLite, this should really be handled by Startup
 
@@ -90,7 +90,3 @@ We will use something called Nuget to import dependencies.
 ## Unity Example
 
 look at the code. Everything runs from Debug ContextMenu commands on the debug behaviour instance (on the main camera). Running the app is required for the chat demo due to main thread callback mechinism.
-
-
-
-
