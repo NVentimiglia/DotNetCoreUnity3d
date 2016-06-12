@@ -53,6 +53,7 @@ We will use something called Nuget to import dependencies.
 
 > *PROTIP* Update-Package -reinstall will re-reference all dlls if things break
 
+
 ### Define a database
 
 - Open ScoreModel.cs, this defines our single data table
