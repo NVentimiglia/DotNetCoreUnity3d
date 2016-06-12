@@ -37,7 +37,7 @@
  - Modules includes domain services, controllers, and models
 
 ## Entity Framework
-Entity framework is an Database Object Relationship Manager. Simply put, it is a strongly typed api for manipulating and persistent data. With EF you have a DataContext (the database object and unit of work), DBSets or lists of tables in the database, and entities or classes which have properties which map to the columns of your tables. Everything in EF is code first, so, you write a C# file, close your eyes and you have a database. There are many other features such as navigational properties (table joins) and providers for other database types such as postgres.
+Entity framework is an Database Object Relationship Manager. Simply put, it is a strongly typed api for manipulating and persistent data. With EF you have a DataContext (the database object and unit of work). Inside the context you have DBSets, a collection type, one for each table in the database. DBSets are generic of you entity type. Entities define your table columns by way of properties and annotations. Everything in EF is code first, so, you write a C# file, close your eyes and you have a database. There are many other features such as navigational properties (table joins) and providers for other database types such as postgres.
 
 We will use something called Nuget to import dependencies. 
 
