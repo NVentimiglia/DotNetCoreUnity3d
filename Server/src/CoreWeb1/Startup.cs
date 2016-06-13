@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using CoreWeb1.Modules.Score;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -31,6 +32,15 @@ namespace CoreWeb1
 
             builder.AddEnvironmentVariables();
             Configuration = builder.Build();
+
+            //Configure DB
+            using (var db = new ScoreContext())
+            {
+                db.Database.EnsureCreated();
+
+                // Note migrations are not yet 100%
+                // this would handle drop/create and data seeding 
+            }
         }
 
         public IConfigurationRoot Configuration { get; }

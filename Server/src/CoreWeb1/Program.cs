@@ -1,5 +1,4 @@
 using System.IO;
-using CoreWeb1.Modules.Score;
 using Microsoft.AspNetCore.Hosting;
 
 namespace CoreWeb1
@@ -8,27 +7,7 @@ namespace CoreWeb1
     {
         public static void Main(string[] args)
         {
-            //Config the database
-            ConfigureDB();
-
-            //Config a http web server
-            ConfigWebServer();
-        }
-
-        static void ConfigureDB()
-        {
-            using (var db = new ScoreContext())
-            {
-                db.Database.EnsureCreated();
-
-                // Note migrations are not yet 100%
-                // this would handle drop/create and data seeding 
-            }
-        }
-
-        static void ConfigWebServer()
-        {
-            var host = new WebHostBuilder()
+           var host = new WebHostBuilder()
               // Kestrel  is the web server
               .UseKestrel()
               // cus windows ?
