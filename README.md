@@ -19,7 +19,6 @@
 - READ IT https://docs.asp.net/en/latest/tutorials/first-web-api.html
 
 ## Good Links
-- https://weblog.west-wind.com/posts/2016/Jun/06/Publishing-and-Running-ASPNET-Core-Applications-with-IIS
 - https://docs.efproject.net/en/latest/cli/dotnet.html#installation
 - https://dotnet.github.io/
 - http://tattoocoder.com/aspnet-slack-sign-up/ (SLACK SUPPORT !)
