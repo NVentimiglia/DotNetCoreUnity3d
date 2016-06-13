@@ -11,6 +11,8 @@
 - A minimalistic HTTP server with...
 - SQL(Lite) Database using Entity Framework
 - High Score Api Controller
+- Account / Auth Api Controller
+- JWT header based authentication mechinism
 - Chat Websocket service
 - Unity3d client
 
