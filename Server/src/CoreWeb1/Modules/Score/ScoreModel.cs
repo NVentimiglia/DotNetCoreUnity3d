@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace CoreWeb1.Modules.Score
@@ -20,5 +21,14 @@ namespace CoreWeb1.Modules.Score
         /// Uses score
         /// </summary>
         public int Points { get; set; }
+    }
+
+    /// <summary>
+    /// Client side data model.
+    /// This can be shared......
+    /// </summary>
+    public class ScoreModelContainer
+    {
+        public ScoreModel[] Scores { get; set; }
     }
 }

@@ -18,15 +18,15 @@ namespace Score
         }
 
         public string UserName;
-        public string Points;
+        public int Points;
 
-        [ContextMenu("Get High Scores")]
+        [ContextMenu("Get All Scores")]
         public void GetScores()
         {
-            StartCoroutine(GetScoresAsync());
+            StartCoroutine(GetAllAsync());
         }
 
-        [ContextMenu("Get My Scores")]
+        [ContextMenu("Get Score")]
         public void GetScore()
         {
             StartCoroutine(GetScoreAsync());
@@ -44,28 +44,32 @@ namespace Score
             StartCoroutine(DeleteScoreAsync());
         }
 
-        IEnumerator GetScoresAsync()
+        IEnumerator GetAllAsync()
         {
-            Debug.Log("GetScoresAsync...");
+            Debug.Log("GetAllAsync...");
             yield return 1;
 
-        
-            UnityWebRequest task = Client.Get();
+            var task = Client.Get();
 
-            //start the task and wait for it to complete
-            yield return task.Send();
+            yield return task;
 
-            if (task.isError)
+            if (task.isError())
             {
                 Debug.LogError(task.error);
             }
             else
             {
-                var scores = task.Deserialize<ScoreModel[]>();
+                var scores = task.Deserialize<ScoreModelContainer>();
 
-                foreach (var score in scores)
+                if (scores == null || scores.Scores == null)
+                    Debug.Log("Not Found");
+                else
                 {
-                    Debug.Log(score.UserName + " " + score.Points);
+                    Debug.Log("Success !");
+                    foreach (var score in scores.Scores)
+                    {
+                        Debug.Log(score.UserName + " " + score.Points);
+                    }
                 }
             }
 
@@ -74,24 +78,24 @@ namespace Score
 
         IEnumerator GetScoreAsync()
         {
+
             Debug.Log("GetScoreAsync...");
             yield return 1;
 
-            UnityWebRequest task = Client.Get(UserName);
 
-            yield return task.Send();
-        
-            if (task.isError)
+            var task = Client.Get(UserName);
+
+            //start the task and wait for it to complete
+            yield return task;
+
+            if (task.isError())
             {
                 Debug.LogError(task.error);
             }
             else
             {
                 var score = task.Deserialize<ScoreModel>();
-                if (score == null)
-                    Debug.Log("Not Found");
-                else
-                    Debug.Log(score.UserName + " " + score.Points);
+                Debug.Log(score.UserName + " " + score.Points);
             }
 
             task.Dispose();
@@ -99,14 +103,22 @@ namespace Score
 
         IEnumerator PostScoreAsync()
         {
-            Debug.Log("GetScoresAsync...");
+            Debug.Log("PostScoreAsync...");
             yield return 1;
 
-            UnityWebRequest task = Client.Post(UserName);
+            var model = new ScoreModel
+            {
+                UserName = UserName,
+                Points = Points,
+            };
 
-            yield return task.Send();
+            var json = JsonUtility.ToJson(model);
 
-            if (task.isError)
+            var task = Client.Post(json);
+
+            yield return task;
+
+            if (task.isError())
             {
                 Debug.LogError(task.error);
             }
@@ -123,11 +135,11 @@ namespace Score
             Debug.Log("DeleteScoreAsync...");
             yield return 1;
 
-            UnityWebRequest task = Client.Delete(UserName);
+            var task = Client.Delete(UserName);
 
-            yield return task.Send();
+            yield return task;
 
-            if (task.isError)
+            if (task.isError())
             {
                 Debug.LogError(task.error);
             }

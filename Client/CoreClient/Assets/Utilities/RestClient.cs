@@ -1,67 +1,72 @@
 using System;
+using System.Collections.Generic;
 using System.Text;
+using UnityEngine;
 using UnityEngine.Experimental.Networking;
 
 /// <summary>
-/// Wraps WebRequests to conform to API Routing conventions.
+/// Wraps WWW to conform to API Routing conventions.
 /// Extensibility point for things like Authentication.
-/// Http Client which fixes bugs in UnityWebRequest.
 /// </summary>
+/// <remarks>
+/// Using WWW and name convention instead of HTTP verbs due to WWW limitation.
+/// Not useing UnityWebRequest due to it not working.
+/// </remarks>
 /// <typeparam name="T"></typeparam>
 public class RestClient
 {
     /// <summary>
-    /// Http://{domain}/api/{controller}
+    /// Http://{domain}/api/{controller}/
     /// </summary>
-    public string UrlBase;
-    
-    //TODO Add a static dictionary for headers (e.g. Authentication)
-    //TODO Add WWW alternative (because UnityWebRequest breaks sometimes)
+    public string UrlBase { get; private set; }
+
+    /// <summary>
+    /// Global Headers (Authentication and such)
+    /// </summary>
+    public static Dictionary<string, string> Headers = new Dictionary<string, string>();
+
+    static RestClient()
+    {
+        Headers.Add("CONTENT-TYPE", "application/json");
+        Headers.Add("ACCEPT", "application/json");
+    }
 
     public RestClient(string urlBase)
     {
+        if (!urlBase.EndsWith("/"))
+            urlBase += "/";
+
         UrlBase = urlBase;
     }
 
-    public UnityWebRequest Get()
+    public WWW Get()
     {
-        UnityWebRequest task = new UnityWebRequest(UrlBase);
-        task.downloadHandler = new DownloadHandlerBuffer();
-        task.method = UnityWebRequest.kHttpVerbGET;
-        task.Send();
-        return task;
+        //Use Post, for header support.
+        Debug.Log(string.Format("{0}{1}", UrlBase, "Get"));
+        return new WWW(string.Format("{0}{1}", UrlBase, "Get"), new byte[1], Headers);
     }
 
-    public UnityWebRequest Get(string id)
+    public WWW Get(string id)
     {
-        UnityWebRequest task = new UnityWebRequest(string.Format("{0}/{1}", UrlBase, id));
-        task.downloadHandler = new DownloadHandlerBuffer();
-        task.method = UnityWebRequest.kHttpVerbGET;
-        return task;
+        Debug.Log(string.Format("{0}{1}/{2}", UrlBase, "Get", id));
+        return new WWW(string.Format("{0}{1}/{2}", UrlBase, "Get", id), new byte[1], Headers);
     }
 
-    public UnityWebRequest Post()
+    public WWW Post()
     {
-        UnityWebRequest task = new UnityWebRequest(UrlBase);
-        task.downloadHandler = new DownloadHandlerBuffer();
-        task.method = UnityWebRequest.kHttpVerbPOST;
-        return task;
+        Debug.Log(string.Format("{0}{1}", UrlBase, "Post"));
+        return new WWW(string.Format("{0}{1}", UrlBase, "Post"), new byte[1], Headers);
     }
 
-    public UnityWebRequest Post(string payload)
+    public WWW Post(string payload)
     {
-        UnityWebRequest task = new UnityWebRequest(UrlBase);
-        task.uploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(payload));
-        task.downloadHandler = new DownloadHandlerBuffer();
-        task.method = UnityWebRequest.kHttpVerbPOST;
-        return task;
+        Debug.Log(string.Format("{0}{1}", UrlBase, "Post"));
+        return new WWW(string.Format("{0}{1}", UrlBase, "Post"), Encoding.UTF8.GetBytes(payload), Headers);
     }
 
-    public UnityWebRequest Delete(string id)
+    public WWW Delete(string id)
     {
-        UnityWebRequest task = new UnityWebRequest(string.Format("{0}/{1}", UrlBase, id));
-        task.downloadHandler = new DownloadHandlerBuffer();
-        task.method = UnityWebRequest.kHttpVerbDELETE;
-        return task;
+        Debug.Log(string.Format("{0}{1}/{2}", UrlBase, "Delete", id));
+        return new WWW(string.Format("{0}{1}/{2}", UrlBase, "Delete", id), new byte[1], Headers);
     }
 }

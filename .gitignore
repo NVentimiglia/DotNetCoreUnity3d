@@ -3,3 +3,5 @@ Client/CoreClient/Library/
 Library
 Temp
 *.userprefs
+Server/src/CoreWeb1/obj/
+Server/src/CoreWeb1/bin/
