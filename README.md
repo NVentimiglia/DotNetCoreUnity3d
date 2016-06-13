@@ -28,6 +28,7 @@
 - www.getpostman.com a http debug client that runs in chrome (for testing)
 - https://github.com/hakobera/Simple-WebSocket-Client websocket chrome client (for testing)
 - http://blogs.msdn.com/b/pfxteam/archive/2012/02/12/10266983.aspx
+- http://hossambarakat.net/2016/02/16/asp-net-core-mvc-feature-folders/
 
 ## Facts
 - All apps in dotnetcore are glorified console apps. Program.cs is our entry point.
