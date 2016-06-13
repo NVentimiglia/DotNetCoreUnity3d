@@ -14,8 +14,12 @@ namespace Chat
         public event Action OnOpen = delegate { };
 
         public event Action OnClose = delegate { };
-
+        
+        //
+        
         private WebSocket _socket;
+        
+        //
 
         public void Open(string url)
         {
@@ -29,14 +33,6 @@ namespace Chat
             _socket.OnError += _socket_OnError;
 
             _socket.Connect();
-        }
-
-        private void _socket_OnError(object sender, ErrorEventArgs e)
-        {
-            MonoHelper.InvokeOnMainThread(() =>
-            {
-                Debug.LogException(e.Exception);
-            });
         }
 
         public void Close()
@@ -62,6 +58,14 @@ namespace Chat
 
         //
 
+        private void _socket_OnError(object sender, ErrorEventArgs e)
+        {
+            MonoHelper.InvokeOnMainThread(() =>
+            {
+                Debug.LogException(e.Exception);
+            });
+        }
+        
         private void _socket_OnMessage(object sender, MessageEventArgs e)
         {
             MonoHelper.InvokeOnMainThread(() =>
@@ -80,7 +84,5 @@ namespace Chat
         {
             MonoHelper.InvokeOnMainThread(OnOpen);
         }
-
-
     }
 }
