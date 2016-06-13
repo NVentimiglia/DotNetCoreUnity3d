@@ -16,11 +16,6 @@ using UnityEngine.Experimental.Networking;
 public class RestClient
 {
     /// <summary>
-    /// Http://{domain}/api/{controller}/
-    /// </summary>
-    public string UrlBase { get; private set; }
-
-    /// <summary>
     /// Global Headers (Authentication and such)
     /// </summary>
     public static Dictionary<string, string> Headers = new Dictionary<string, string>();
@@ -31,42 +26,51 @@ public class RestClient
         Headers.Add("ACCEPT", "application/json");
     }
 
-    public RestClient(string urlBase)
+    static void ApplyHeaders(UnityWebRequest task)
     {
-        if (!urlBase.EndsWith("/"))
-            urlBase += "/";
-
-        UrlBase = urlBase;
+        foreach (var header in Headers)
+        {
+            task.SetRequestHeader(header.Key, header.Value);
+        }
     }
 
-    public WWW Get()
+    public static UnityWebRequest Get(string url)
     {
-        //Use Post, for header support.
-        Debug.Log(string.Format("{0}{1}", UrlBase, "Get"));
-        return new WWW(string.Format("{0}{1}", UrlBase, "Get"), new byte[1], Headers);
+        var task = UnityWebRequest.Get(url);
+        ApplyHeaders(task);
+        return task;
     }
 
-    public WWW Get(string id)
+    public static UnityWebRequest Get(string url, string id)
     {
-        Debug.Log(string.Format("{0}{1}/{2}", UrlBase, "Get", id));
-        return new WWW(string.Format("{0}{1}/{2}", UrlBase, "Get", id), new byte[1], Headers);
+        if (!url.EndsWith("/"))
+            url += "/";
+
+        url += id;
+
+        var task = UnityWebRequest.Get(url);
+        ApplyHeaders(task);
+        return task;
     }
 
-    public WWW Post()
+    public static UnityWebRequest Post(string url)
     {
-        Debug.Log(string.Format("{0}{1}", UrlBase, "Post"));
-        return new WWW(string.Format("{0}{1}", UrlBase, "Post"), new byte[1], Headers);
+        var task = UnityWebRequest.Post(url, string.Empty);
+        ApplyHeaders(task);
+        return task;
     }
 
-    public WWW Post(string payload)
+    public static UnityWebRequest Post(string url, string payload)
     {
-        Debug.Log(string.Format("{0}{1}", UrlBase, "Post"));
-        return new WWW(string.Format("{0}{1}", UrlBase, "Post"), Encoding.UTF8.GetBytes(payload), Headers);
+        var task = UnityWebRequest.Post(url, payload);
+        ApplyHeaders(task);
+        return task;
     }
 
-    public WWW Delete(string id)
+    public static UnityWebRequest Delete(string url, string id)
     {
-        Debug.Log(string.Format("{0}{1}/{2}", UrlBase, "Delete", id));
-        return new WWW(string.Format("{0}{1}/{2}", UrlBase, "Delete", id), new byte[1], Headers);
+        var task = UnityWebRequest.Delete(url);
+        ApplyHeaders(task);
+        return task;
     }
 }

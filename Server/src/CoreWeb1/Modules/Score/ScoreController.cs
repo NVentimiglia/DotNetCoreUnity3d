@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -6,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CoreWeb1.Modules.Score
 {
+    [Route("api/[controller]")]
     public class ScoreController : Controller
     {
         //Ref to our DB proxy
@@ -16,34 +18,28 @@ namespace CoreWeb1.Modules.Score
             Context.Dispose();
         }
 
-        // Note not using HTTP verbs correctly due to WWW limitation
-        // Using action name convention instead.
-
-        // GET api/Score/Get
-        [HttpPost]
-        [Route("api/Score/Get")]
+        // GET api/Score
+        [HttpGet]
         public async Task<ScoreModelContainer> Get()
         {
             // PROTIP : filter these results using http paramaters or something like ODATA 
             // ODATA exposes full lambda searches to the client
-
+           
             return new ScoreModelContainer
             {
                 Scores = await Context.Scores.OrderByDescending(o => o.Points).ToArrayAsync()
             };
         }
 
-        // GET api/Score/Get/5
-        [HttpPost("{id}")]
-        [Route("api/Score/Get/{id}")]
+        // GET api/Score/5
+        [HttpGet("{id}")]
         public Task<ScoreModel> Get(string id)
         {
             return Context.Scores.FirstOrDefaultAsync(o => o.UserName == id);
         }
 
-        // POST api/Score/Post
+        // POST api/Score
         [HttpPost]
-        [Route("api/Score/Post")]
         public async Task<IActionResult> Post([FromBody]ScoreModel model)
         {
             //Sanity
@@ -72,9 +68,8 @@ namespace CoreWeb1.Modules.Score
             }
         }
 
-        // DELETE api/Score/Delete/5
-        [HttpPost("{id}")]
-        [Route("api/Score/Delete/{id}")]
+        // DELETE api/Score/5
+        [HttpDelete("{id}")]
         public async Task Delete(string id)
         {
             //Check for new or update

@@ -1,21 +1,11 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Experimental.Networking;
 
 namespace Score
 {
     public class ScoreDemo : MonoBehaviour
     {
         public string ServerPath = "http://localhost:58459/api/Score";
-
-        public RestClient _client;
-        public RestClient Client
-        {
-            get
-            {
-                return _client = _client ?? new RestClient(ServerPath);
-            }
-        }
 
         public string UserName;
         public int Points;
@@ -49,11 +39,11 @@ namespace Score
             Debug.Log("GetAllAsync...");
             yield return 1;
 
-            var task = Client.Get();
+            var task = RestClient.Get(ServerPath);
 
-            yield return task;
+            yield return task.Send();
 
-            if (task.isError())
+            if (task.isError)
             {
                 Debug.LogError(task.error);
             }
@@ -83,12 +73,12 @@ namespace Score
             yield return 1;
 
 
-            var task = Client.Get(UserName);
+            var task = RestClient.Get(ServerPath, UserName);
 
             //start the task and wait for it to complete
-            yield return task;
+            yield return task.Send();
 
-            if (task.isError())
+            if (task.isError)
             {
                 Debug.LogError(task.error);
             }
@@ -114,11 +104,11 @@ namespace Score
 
             var json = JsonUtility.ToJson(model);
 
-            var task = Client.Post(json);
+            var task = RestClient.Post(ServerPath, json);
 
-            yield return task;
+            yield return task.Send();
 
-            if (task.isError())
+            if (task.isError)
             {
                 Debug.LogError(task.error);
             }
@@ -135,11 +125,11 @@ namespace Score
             Debug.Log("DeleteScoreAsync...");
             yield return 1;
 
-            var task = Client.Delete(UserName);
+            var task = RestClient.Delete(ServerPath, UserName);
 
-            yield return task;
+            yield return task.Send();
 
-            if (task.isError())
+            if (task.isError)
             {
                 Debug.LogError(task.error);
             }
