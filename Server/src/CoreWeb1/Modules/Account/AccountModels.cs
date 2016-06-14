@@ -1,6 +1,5 @@
 namespace CoreWeb1.Modules.Account
 {
-
     public class AccountModel
     {
         public string UserName { get; set; }

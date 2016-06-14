@@ -5,6 +5,7 @@ using CoreWeb1.Modules.Score;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Razor;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -34,15 +35,6 @@ namespace CoreWeb1
 
             builder.AddEnvironmentVariables();
             Configuration = builder.Build();
-
-            //Configure DB
-            using (var db = new ScoreContext())
-            {
-                db.Database.EnsureCreated();
-
-                // Note migrations are not yet 100%
-                // this would handle drop/create and data seeding 
-            }
         }
 
         public IConfigurationRoot Configuration { get; }
@@ -53,15 +45,14 @@ namespace CoreWeb1
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
 
+            //our routing framework
+            services.AddMvc();
+
             //support for custom view location
             services.Configure<RazorViewEngineOptions>(options =>
             {
                 options.ViewLocationExpanders.Add(new ModuleViewLocator());
             });
-
-            //our routing framework
-            services.AddMvc();
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline
@@ -73,7 +64,7 @@ namespace CoreWeb1
             app.UseApplicationInsightsRequestTelemetry();
 
             app.UseApplicationInsightsExceptionTelemetry();
-            
+
             //enable web sockets
             app.UseWebSockets();
 
@@ -82,8 +73,12 @@ namespace CoreWeb1
 
             // this enables routing / controller framework
             app.UseMvc();
-        }
 
-        
+            //ensure DB is configured
+            using (var context = new ScoreContext())
+            {
+                context.Database.EnsureCreated();
+            }
+        }
     }
 }

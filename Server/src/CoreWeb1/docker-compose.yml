@@ -1,0 +1,9 @@
+version: '2'
+
+services:
+  coreweb1:
+    build:
+      context: ..
+      dockerfile: app/dockerfile
+    ports:
+      - "80:80"
