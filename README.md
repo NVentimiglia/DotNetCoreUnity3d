@@ -39,7 +39,7 @@
 - [Custom View Locations](http://hossambarakat.net/2016/02/16/asp-net-core-mvc-feature-folders/)
 - [JWT Authentication](http://stackoverflow.com/questions/30546542/token-based-authentication-in-asp-net-5-vnext-refreshed/33217340#33217340)
 - [ELMAH exception web viewer](http://dotnetthoughts.net/using-elmah-in-aspnet-core/)
-- 
+
 
 ## Facts
 - All apps in dotnetcore are glorified console apps. Program.cs is our entry point.
