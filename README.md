@@ -18,15 +18,23 @@
 - GET IT https://www.microsoft.com/net/core#windows
 - READ IT https://docs.asp.net/en/latest/tutorials/first-web-api.html
 
-## Good Links
+## Official Links
 - https://docs.efproject.net/en/latest/cli/dotnet.html#installation
 - https://dotnet.github.io/
-- http://stephenwalther.com/archive/2015/02/07/asp-net-5-deep-dive-routing
 - http://tattoocoder.com/aspnet-slack-sign-up/ (SLACK SUPPORT !)
 - https://github.com/aspnet/EntityFramework/wiki
-- https://medium.com/@turowicz/websockets-in-asp-net-5-6094319a15a2#.kejwy8ync
+
+## Tools
 - www.getpostman.com a http debug client that runs in chrome (for testing)
 - https://github.com/hakobera/Simple-WebSocket-Client websocket chrome client (for testing)
+
+
+## Good Samples
+- (https://docs.asp.net/en/latest/tutorials/first-mvc-app/index.html)[Music Store]
+
+## Good to knows
+- (http://stephenwalther.com/archive/2015/02/07/asp-net-5-deep-dive-routing)[Deep dive routing]
+- https://medium.com/@turowicz/websockets-in-asp-net-5-6094319a15a2#.kejwy8ync
 - http://blogs.msdn.com/b/pfxteam/archive/2012/02/12/10266983.aspx
 - http://hossambarakat.net/2016/02/16/asp-net-core-mvc-feature-folders/
 - http://stackoverflow.com/questions/30546542/token-based-authentication-in-asp-net-5-vnext-refreshed/33217340#33217340
