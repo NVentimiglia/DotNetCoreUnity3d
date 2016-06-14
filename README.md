@@ -49,7 +49,7 @@
  - Modules includes domain services, controllers, and models
 - MVC has some magic that might be hard to grasp.
  - Routing is the convention to send HTTP requests to 'controllers'
- - View Location is the convention for finding html 'views' from controllers (if you are a non API controller)
+ - View Location is the convention for finding html 'views' from controllers (for non API controller)
  - Entity framework defines a database using annotations
  - ModelState can validate a data object using annotations
 
