@@ -18,17 +18,30 @@
 - GET IT https://www.microsoft.com/net/core#windows
 - READ IT https://docs.asp.net/en/latest/tutorials/first-web-api.html
 
-## Good Links
-- https://docs.efproject.net/en/latest/cli/dotnet.html#installation
-- https://dotnet.github.io/
-- http://tattoocoder.com/aspnet-slack-sign-up/ (SLACK SUPPORT !)
-- https://github.com/aspnet/EntityFramework/wiki
-- https://medium.com/@turowicz/websockets-in-asp-net-5-6094319a15a2#.kejwy8ync
-- www.getpostman.com a http debug client that runs in chrome (for testing)
-- https://github.com/hakobera/Simple-WebSocket-Client websocket chrome client (for testing)
-- http://blogs.msdn.com/b/pfxteam/archive/2012/02/12/10266983.aspx
-- http://hossambarakat.net/2016/02/16/asp-net-core-mvc-feature-folders/
-- http://stackoverflow.com/questions/30546542/token-based-authentication-in-asp-net-5-vnext-refreshed/33217340#33217340
+## Official Links
+- [Installation Guide](https://docs.efproject.net/en/latest/cli/dotnet.html#installation)
+- [Github repo for dotnetcore](https://dotnet.github.io/)
+- [SLACK SUPPORT !](http://tattoocoder.com/aspnet-slack-sign-up/)
+- [Entity Framework Wiki](https://github.com/aspnet/EntityFramework/wiki)
+
+## Tools
+- [Chrome HTTP Client](www.getpostman.com)
+- [Chrome Websocket Client](https://github.com/hakobera/Simple-WebSocket-Client)
+- [Docker tutorial] (http://blog.alexellis.io/instant-dotnet-core-rc2-with-docker/)
+
+
+## Good Samples
+- [MVC Music Store 'website'](https://docs.asp.net/en/latest/tutorials/first-mvc-app/index.html)
+
+## Good to knows
+- [Routing Deep Dive](http://stephenwalther.com/archive/2015/02/07/asp-net-5-deep-dive-routing)
+- [Basic Websockets](https://medium.com/@turowicz/websockets-in-asp-net-5-6094319a15a2#.kejwy8ync)
+- [Async Locks](http://blogs.msdn.com/b/pfxteam/archive/2012/02/12/10266983.aspx)
+- [Custom View Locations](http://hossambarakat.net/2016/02/16/asp-net-core-mvc-feature-folders/)
+- [JWT Authentication](http://stackoverflow.com/questions/30546542/token-based-authentication-in-asp-net-5-vnext-refreshed/33217340#33217340)
+- [OAuth LinkedIn Example](https://auth0.com/blog/2016/06/13/authenticating-a-user-with-linkedin-in-aspnet-core/)
+- [ELMAH exception web viewer](http://dotnetthoughts.net/using-elmah-in-aspnet-core/)
+
 
 ## Facts
 - All apps in dotnetcore are glorified console apps. Program.cs is our entry point.
@@ -36,6 +49,11 @@
 - Besides Startup and Program.cs code exists as /Infrastructure or /Modules
  - Infrastructure includes utilities and componenets
  - Modules includes domain services, controllers, and models
+- MVC has some magic that might be hard to grasp.
+ - Routing is the convention to send HTTP requests to 'controllers'
+ - View Location is the convention for finding html 'views' from controllers (for non API controller)
+ - Entity framework defines a database using annotations
+ - ModelState can validate a data object using annotations
 
 ## Entity Framework
 Entity framework is an Database Object Relationship Manager. Simply put, it is a strongly typed api for manipulating and persistent data. With EF you have a DataContext (the database object and unit of work). Inside the context you have DBSets, a collection type, one for each table in the database. DBSets are generic of you entity type. Entities define your table columns by way of properties and annotations. Everything in EF is code first, so, you write a C# file, close your eyes and you have a database. There are many other features such as navigational properties (table joins) and providers for other database types such as postgres.
