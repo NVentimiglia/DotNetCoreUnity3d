@@ -19,9 +19,9 @@
 - READ IT https://docs.asp.net/en/latest/tutorials/first-web-api.html
 
 ## Official Links
-- [https://docs.efproject.net/en/latest/cli/dotnet.html#installation] (Installation)
-- [https://dotnet.github.io/] (Github repo for dotnetcore)
-- [http://tattoocoder.com/aspnet-slack-sign-up/] (SLACK SUPPORT !)
+- [https://docs.efproject.net/en/latest/cli/dotnet.html#installation](Installation)
+- [https://dotnet.github.io/](Github repo for dotnetcore)
+- [http://tattoocoder.com/aspnet-slack-sign-up/](SLACK SUPPORT !)
 - [https://github.com/aspnet/EntityFramework/wiki](Entity Framework Wiki)
 
 ## Tools
