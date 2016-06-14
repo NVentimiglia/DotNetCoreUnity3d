@@ -19,14 +19,14 @@
 - READ IT https://docs.asp.net/en/latest/tutorials/first-web-api.html
 
 ## Official Links
-- [https://docs.efproject.net/en/latest/cli/dotnet.html#installation](Installation)
-- [https://dotnet.github.io/](Github repo for dotnetcore)
-- [http://tattoocoder.com/aspnet-slack-sign-up/](SLACK SUPPORT !)
-- [https://github.com/aspnet/EntityFramework/wiki](Entity Framework Wiki)
+- [Installation Guide](https://docs.efproject.net/en/latest/cli/dotnet.html#installation)()
+- [Github repo for dotnetcore][https://dotnet.github.io/)
+- [SLACK SUPPORT !](http://tattoocoder.com/aspnet-slack-sign-up/)
+- [Entity Framework Wiki]([https://github.com/aspnet/EntityFramework/wiki)
 
 ## Tools
-- www.getpostman.com a http debug client that runs in chrome (for testing)
-- https://github.com/hakobera/Simple-WebSocket-Client websocket chrome client (for testing)
+- [Chrome HTTP Client](www.getpostman.com)
+- (Chrome Websocket Client)[https://github.com/hakobera/Simple-WebSocket-Client]
 
 
 ## Good Samples
