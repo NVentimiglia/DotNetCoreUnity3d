@@ -21,6 +21,7 @@
 ## Good Links
 - https://docs.efproject.net/en/latest/cli/dotnet.html#installation
 - https://dotnet.github.io/
+- http://stephenwalther.com/archive/2015/02/07/asp-net-5-deep-dive-routing
 - http://tattoocoder.com/aspnet-slack-sign-up/ (SLACK SUPPORT !)
 - https://github.com/aspnet/EntityFramework/wiki
 - https://medium.com/@turowicz/websockets-in-asp-net-5-6094319a15a2#.kejwy8ync
