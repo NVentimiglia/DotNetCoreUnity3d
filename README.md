@@ -47,6 +47,11 @@
 - Besides Startup and Program.cs code exists as /Infrastructure or /Modules
  - Infrastructure includes utilities and componenets
  - Modules includes domain services, controllers, and models
+- MVC has some magic that might be hard to grasp.
+ - Routing is the convention to send HTTP requests to 'controllers'
+ - View Location is the convention for finding html 'views' from controllers (if you are a non API controller)
+ - Entity framework defines a database using annotations
+ - ModelState can validate a data object using annotations
 
 ## Entity Framework
 Entity framework is an Database Object Relationship Manager. Simply put, it is a strongly typed api for manipulating and persistent data. With EF you have a DataContext (the database object and unit of work). Inside the context you have DBSets, a collection type, one for each table in the database. DBSets are generic of you entity type. Entities define your table columns by way of properties and annotations. Everything in EF is code first, so, you write a C# file, close your eyes and you have a database. There are many other features such as navigational properties (table joins) and providers for other database types such as postgres.
