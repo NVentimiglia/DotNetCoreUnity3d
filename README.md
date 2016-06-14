@@ -19,25 +19,25 @@
 - READ IT https://docs.asp.net/en/latest/tutorials/first-web-api.html
 
 ## Official Links
-- [Installation Guide](https://docs.efproject.net/en/latest/cli/dotnet.html#installation)()
-- [Github repo for dotnetcore][https://dotnet.github.io/)
+- [Installation Guide](https://docs.efproject.net/en/latest/cli/dotnet.html#installation)
+- [Github repo for dotnetcore](https://dotnet.github.io/)
 - [SLACK SUPPORT !](http://tattoocoder.com/aspnet-slack-sign-up/)
-- [Entity Framework Wiki]([https://github.com/aspnet/EntityFramework/wiki)
+- [Entity Framework Wiki](https://github.com/aspnet/EntityFramework/wiki)
 
 ## Tools
 - [Chrome HTTP Client](www.getpostman.com)
-- (Chrome Websocket Client)[https://github.com/hakobera/Simple-WebSocket-Client]
+- [Chrome Websocket Client](https://github.com/hakobera/Simple-WebSocket-Client)
 
 
 ## Good Samples
-- (https://docs.asp.net/en/latest/tutorials/first-mvc-app/index.html)[Music Store]
+- [MVC Music Store 'website'](https://docs.asp.net/en/latest/tutorials/first-mvc-app/index.html)
 
 ## Good to knows
-- (http://stephenwalther.com/archive/2015/02/07/asp-net-5-deep-dive-routing)[Deep dive routing]
-- https://medium.com/@turowicz/websockets-in-asp-net-5-6094319a15a2#.kejwy8ync
-- http://blogs.msdn.com/b/pfxteam/archive/2012/02/12/10266983.aspx
-- http://hossambarakat.net/2016/02/16/asp-net-core-mvc-feature-folders/
-- http://stackoverflow.com/questions/30546542/token-based-authentication-in-asp-net-5-vnext-refreshed/33217340#33217340
+- (Routing Deep dive)[http://stephenwalther.com/archive/2015/02/07/asp-net-5-deep-dive-routing]
+- (Basic Websockets)[https://medium.com/@turowicz/websockets-in-asp-net-5-6094319a15a2#.kejwy8ync]
+- (Async Locks)[http://blogs.msdn.com/b/pfxteam/archive/2012/02/12/10266983.aspx]
+- (Custom View Locations)[http://hossambarakat.net/2016/02/16/asp-net-core-mvc-feature-folders/]
+- (JWT Authentication)[http://stackoverflow.com/questions/30546542/token-based-authentication-in-asp-net-5-vnext-refreshed/33217340#33217340]
 
 ## Facts
 - All apps in dotnetcore are glorified console apps. Program.cs is our entry point.
