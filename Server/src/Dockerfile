@@ -8,7 +8,7 @@ ENV ASPNETCORE_URLS http://*:80
 EXPOSE 80
 
 # Copy the app
-COPY /app /app
+COPY /CoreWeb1 /opt/CoreWeb1
 
 # Start the app
 ENTRYPOINT dotnet CoreWeb1.dll
