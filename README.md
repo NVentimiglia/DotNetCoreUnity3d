@@ -41,6 +41,7 @@
 - [JWT Authentication](http://stackoverflow.com/questions/30546542/token-based-authentication-in-asp-net-5-vnext-refreshed/33217340#33217340)
 - [OAuth LinkedIn Example](https://auth0.com/blog/2016/06/13/authenticating-a-user-with-linkedin-in-aspnet-core/)
 - [ELMAH exception web viewer](http://dotnetthoughts.net/using-elmah-in-aspnet-core/)
+- [OData protocal (Lambda Quries !)](http://www.odata.org/)
 
 
 ## Facts
