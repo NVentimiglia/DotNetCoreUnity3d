@@ -28,6 +28,7 @@
 - [Chrome HTTP Client](www.getpostman.com)
 - [Chrome Websocket Client](https://github.com/hakobera/Simple-WebSocket-Client)
 - [Docker tutorial] (http://blog.alexellis.io/instant-dotnet-core-rc2-with-docker/)
+- [Digital Ocean Videos](https://www.youtube.com/watch?v=IpwHTs7QbQs)
 
 
 ## Good Samples
