@@ -28,6 +28,7 @@
 - [Chrome HTTP Client](www.getpostman.com)
 - [Chrome Websocket Client](https://github.com/hakobera/Simple-WebSocket-Client)
 - [Docker tutorial] (http://blog.alexellis.io/instant-dotnet-core-rc2-with-docker/)
+- [Digital Ocean Videos](https://www.youtube.com/watch?v=IpwHTs7QbQs)
 
 
 ## Good Samples
@@ -41,6 +42,7 @@
 - [JWT Authentication](http://stackoverflow.com/questions/30546542/token-based-authentication-in-asp-net-5-vnext-refreshed/33217340#33217340)
 - [OAuth LinkedIn Example](https://auth0.com/blog/2016/06/13/authenticating-a-user-with-linkedin-in-aspnet-core/)
 - [ELMAH exception web viewer](http://dotnetthoughts.net/using-elmah-in-aspnet-core/)
+- [OData protocal (Lambda Queries !)](http://www.odata.org/)
 
 
 ## Facts
