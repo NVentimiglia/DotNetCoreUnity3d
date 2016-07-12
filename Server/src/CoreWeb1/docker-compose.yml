@@ -1,7 +1,0 @@
-version: '2'
-
-services:
-  coreweb1:
-    image: nventi/coreweb1
-    ports:
-      - "80:80"

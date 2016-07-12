@@ -1,14 +1,17 @@
-FROM microsoft/dotnet:1.0.0-core
+FROM microsoft/dotnet:latest
 
-# Set the Working Directory
+RUN apt-get update && apt-get install sqlite3 libsqlite3-dev
+
+COPY . /app
+
 WORKDIR /app
 
-# Configure the listening port to 80
-ENV ASPNETCORE_URLS http://*:80
-EXPOSE 80
+RUN ["dotnet", "restore"]
 
-# Copy the app
-COPY /app /app
+RUN ["dotnet", "build"]
 
-# Start the app
-ENTRYPOINT dotnet CoreWeb1.dll
+RUN ["dotnet", "ef", "database", "update"]
+
+EXPOSE 5000/tcp
+
+ENTRYPOINT ["dotnet", "run", "--server.urls", "http://0.0.0.0:5000"]
