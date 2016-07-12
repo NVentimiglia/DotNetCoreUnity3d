@@ -1,0 +1,7 @@
+version: '2'
+
+services:
+  coreweb1:
+    image: username/coreweb1
+    ports:
+      - "80:80"
