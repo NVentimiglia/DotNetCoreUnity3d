@@ -8,7 +8,7 @@ FROM microsoft/dotnet:latest
 
 COPY bin/Debug/netcoreapp1.0/publish /publish/
 
-ENV ASPNETCORE_URLS http://*:80
-EXPOSE 80
+ENV ASPNETCORE_URLS http://*:5000
+EXPOSE 5000
 
 ENTRYPOINT dotnet /publish/CoreWeb1.dll

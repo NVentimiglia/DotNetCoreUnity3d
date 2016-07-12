@@ -44,14 +44,9 @@
 		"include": [
 			"wwwroot",
 			"Views",
-			"Modules/**/Views",
 			"appsettings.json",
 			"web.config",
-			"dockerfile"
+			"Dockerfile"
 		]
 	},
-	"scripts": {
-		"prepublish": [ "dotnet bundle" ],
-		"postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%" ]
-	}
 }
