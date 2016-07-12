@@ -1,11 +1,8 @@
 using System.Collections.Generic;
-using System.Linq;
-using CoreWeb1.Infrastructure;
-using CoreWeb1.Modules.Score;
+using CoreWeb1.Controllers;
+using CoreWeb1.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc.Razor;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -35,15 +32,8 @@ namespace CoreWeb1
         // This method gets called by the runtime. Use this method to add services to the container
         public void ConfigureServices(IServiceCollection services)
         {
-
             //our routing framework
             services.AddMvc();
-
-            //support for custom view location
-            services.Configure<RazorViewEngineOptions>(options =>
-            {
-                options.ViewLocationExpanders.Add(new ModuleViewLocator());
-            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline

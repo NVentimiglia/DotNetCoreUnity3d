@@ -1,7 +1,8 @@
+using CoreWeb1.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CoreWeb1.Modules.Account
+namespace CoreWeb1.Controllers
 {
     [Route("api/[controller]")]
     public class AccountController : Controller

@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using CoreWeb1.Infrastructure.AsyncLock;
 
-namespace CoreWeb1.Modules.Chat
+namespace CoreWeb1.Data
 {
     ///<summary>Minmalistic Websocket instance handler</summary>
     public class ChatClient : IDisposable

@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace CoreWeb1.Modules.Score
+namespace CoreWeb1.Data
 {
     /// <summary>
     /// This entity is persistent via the ScoreContext

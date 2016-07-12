@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Net.WebSockets;
 using System.Threading.Tasks;
-using CoreWeb1.Modules.Chat;
+using CoreWeb1.Data;
 using Microsoft.AspNetCore.Http;
 
-namespace CoreWeb1
+namespace CoreWeb1.Controllers
 {
     public class ChatService
     {

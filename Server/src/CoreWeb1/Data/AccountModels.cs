@@ -1,4 +1,4 @@
-namespace CoreWeb1.Modules.Account
+namespace CoreWeb1.Data
 {
     public class AccountModel
     {

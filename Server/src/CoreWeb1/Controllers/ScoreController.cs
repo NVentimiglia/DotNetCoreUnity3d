@@ -1,9 +1,10 @@
 using System.Linq;
 using System.Threading.Tasks;
+using CoreWeb1.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace CoreWeb1.Modules.Score
+namespace CoreWeb1.Controllers
 {
     [Route("api/[controller]")]
     public class ScoreController : Controller
@@ -26,7 +27,7 @@ namespace CoreWeb1.Modules.Score
            
             return new ScoreModelContainer
             {
-                Scores = await Context.Scores.OrderByDescending(o => o.Points).ToArrayAsync()
+                Scores = await Queryable.OrderByDescending<ScoreModel, int>(Context.Scores, o => o.Points).ToArrayAsync()
             };
         }
 
@@ -34,7 +35,7 @@ namespace CoreWeb1.Modules.Score
         [HttpGet("{id}")]
         public Task<ScoreModel> Get(string id)
         {
-            return Context.Scores.FirstOrDefaultAsync(o => o.UserName == id);
+            return Context.Scores.FirstOrDefaultAsync<ScoreModel>(o => o.UserName == id);
         }
 
         // POST api/Score
@@ -48,7 +49,7 @@ namespace CoreWeb1.Modules.Score
             }
 
             //Check for new or update
-            var old = await Context.Scores.FirstOrDefaultAsync(o => o.UserName == model.UserName);
+            var old = await Context.Scores.FirstOrDefaultAsync<ScoreModel>(o => o.UserName == model.UserName);
 
             if (old == null)
             {
@@ -72,7 +73,7 @@ namespace CoreWeb1.Modules.Score
         public async Task Delete(string id)
         {
             //Check for new or update
-            var old = await Context.Scores.FirstOrDefaultAsync(o => o.UserName == id);
+            var old = await Context.Scores.FirstOrDefaultAsync<ScoreModel>(o => o.UserName == id);
             if (old != null)
             {
                 Context.Scores.Remove(old);

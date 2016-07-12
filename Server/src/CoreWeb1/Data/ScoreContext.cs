@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace CoreWeb1.Modules.Score
+namespace CoreWeb1.Data
 {
     /// <summary>
     /// Defines our database.
