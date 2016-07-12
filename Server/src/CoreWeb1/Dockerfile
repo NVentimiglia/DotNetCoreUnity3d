@@ -1,14 +1,14 @@
-# dotnet publish
-# docker build -t nventi/coreweb:x.x bin/Debug/netcoreapp1.0/publish/
-# docker run -d -P 5000:5000 nventi/coreweb:x.x
-# docker ps -a
-# docker logs
+FROM microsoft/dotnet:1.0.0-core
 
-FROM microsoft/dotnet:latest
+# Set the Working Directory
+WORKDIR /app
 
-COPY bin/Debug/netcoreapp1.0/publish /publish/
+# Configure the listening port to 80
+ENV ASPNETCORE_URLS http://*:80
+EXPOSE 80
 
-ENV ASPNETCORE_URLS http://*:5000
-EXPOSE 5000
+# Copy the app
+COPY /app /app
 
-ENTRYPOINT dotnet /publish/CoreWeb1.dll
+# Start the app
+ENTRYPOINT dotnet CoreWeb1.dll
