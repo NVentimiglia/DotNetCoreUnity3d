@@ -48,12 +48,6 @@
 			"appsettings.json",
 			"web.config",
 			"Dockerfile",
-			"docker-compose.yml",
-			"docker-compose.debug.yml",
-			"Dockerfile.debug"
 		]
-	},
-	"scripts": {
-		"postpublish": "dotnet publish-docker --publish-folder %publish:OutputPath%"
 	}
 }
