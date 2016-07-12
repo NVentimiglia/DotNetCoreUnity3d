@@ -2,7 +2,7 @@ version: '2'
 
 services:
   coreweb1:
-    image: username/coreweb1:Debug
+    image: nventi/coreweb1:Debug
     environment:
       - REMOTE_DEBUGGING=${REMOTE_DEBUGGING}
     ports:
