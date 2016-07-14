@@ -11,8 +11,8 @@ FROM microsoft/dotnet:latest
 WORKDIR /app
 
 # Configure the listening port
-ENV ASPNETCORE_URLS http://*:5000
-EXPOSE 5000
+ENV ASPNETCORE_URLS http://*:80
+EXPOSE 80
 
 # Copy the app
 COPY . /app
