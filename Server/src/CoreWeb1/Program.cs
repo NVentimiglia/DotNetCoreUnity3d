@@ -11,10 +11,7 @@ namespace CoreWeb1
             var host = new WebHostBuilder()
                // Required for docker support
                //.UseUrls(Environment.GetEnvironmentVariable("ASPNETCORE_SERVER.URLS"))
-               .UseUrls("http://*:5000")
-               .UseUrls("http://*:80")
-               .UseUrls("ws://*:80")
-               .UseUrls("ws://*:5000")
+
                // Kestrel  is the web server
                .UseKestrel()
                // cus windows ?
