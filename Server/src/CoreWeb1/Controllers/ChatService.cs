@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Net.WebSockets;
 using System.Threading.Tasks;
@@ -12,14 +11,22 @@ namespace CoreWeb1.Controllers
         static List<ChatClient> _connections = new List<ChatClient>();
         static object _lock = new object();
 
-        public static async Task ChatHandler(HttpContext http, Func<Task> next)
+
+        private readonly RequestDelegate next;
+
+        public ChatService(RequestDelegate next)
+        {
+            this.next = next;
+        }
+
+        public async Task Invoke(HttpContext http)
         {
             // is this http request a WS request ?
             if (http.WebSockets.IsWebSocketRequest)
             {
                 //Accept handshake
                 var webSocket = await http.WebSockets.AcceptWebSocketAsync();
-                
+
                 // sanity for failed handshake
                 if (webSocket != null && webSocket.State == WebSocketState.Open)
                 {
@@ -42,9 +49,9 @@ namespace CoreWeb1.Controllers
 
                     //while open 'Update' (read the incoming socket stream)
                     await client.UpdateAsync();
-                   
+
                     //note, this returns only when the stream is closed
-                    
+
                     //dispose, remove, close
                     client.Dispose();
                     lock (_lock)
@@ -56,7 +63,7 @@ namespace CoreWeb1.Controllers
             else
             {
                 // Nothing to do here, pass downstream.  
-                await next();
+                await next(http);
             }
         }
     }

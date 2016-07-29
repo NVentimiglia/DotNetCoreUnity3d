@@ -46,7 +46,7 @@ namespace CoreWeb1
             app.UseWebSockets();
 
             //wire our chat service
-            app.Use(ChatService.ChatHandler);
+            app.UseMiddleware<ChatService>();
 
             // this enables routing / controller framework
             app.UseMvc();

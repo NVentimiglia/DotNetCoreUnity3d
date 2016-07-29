@@ -18,7 +18,6 @@
 		"Microsoft.Extensions.Logging.Debug": "1.0.0"
 	},
 	"tools": {
-		"dotnet-publish-docker": "1.0.0-alpha1",
 		"Microsoft.AspNetCore.Server.IISIntegration.Tools": "1.0.0-preview2-final",
 		"Microsoft.EntityFrameworkCore.Tools": "1.0.0-preview2-final"
 	},
