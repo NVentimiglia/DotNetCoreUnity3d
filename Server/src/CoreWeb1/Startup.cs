@@ -33,7 +33,11 @@ namespace CoreWeb1
         public void ConfigureServices(IServiceCollection services)
         {
             //our routing framework
-            services.AddMvc();
+            services.AddMvc().AddJsonOptions(options =>
+            {
+                // PascaleCaseJson
+                options.SerializerSettings.ContractResolver = new DefaultContractResolver();
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline
