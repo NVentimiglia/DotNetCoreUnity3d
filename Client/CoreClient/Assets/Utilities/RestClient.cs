@@ -67,8 +67,8 @@ public class RestClient
         return task;
         // Media type wrong by default.
         //var task = UnityWebRequest.Post(url, payload);
-        ApplyHeaders(task);
-        return task;
+        //ApplyHeaders(task);
+        //return task;
     }
 
     public static UnityWebRequest Delete(string url, string id)
