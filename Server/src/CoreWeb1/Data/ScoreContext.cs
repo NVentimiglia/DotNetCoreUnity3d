@@ -14,6 +14,7 @@ namespace CoreWeb1.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            // TODO move to startup
             optionsBuilder.UseSqlite("Filename=./score.db");
         }
     }
