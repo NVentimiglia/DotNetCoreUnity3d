@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace Score
 {
+    // Really a View
     public class ScoreDemo : MonoBehaviour
     {
         public string ServerPath = "http://localhost:58459/api/Score";
@@ -85,7 +86,10 @@ namespace Score
             else
             {
                 var score = task.Deserialize<ScoreModel>();
-                Debug.Log(score.UserName + " " + score.Points);
+                if(score == null)
+                    Debug.Log("NotFound");
+                else
+                    Debug.Log(score.UserName + " " + score.Points);
             }
 
             task.Dispose();
