@@ -6,6 +6,7 @@ namespace CoreWeb1.Infrastructure
     /// <summary>
     /// Support for the Modules/Domain/Views
     /// http://hossambarakat.net/2016/02/16/asp-net-core-mvc-feature-folders/
+    /// Not being used as this app is small. would use in a production app.
     /// </summary>
     public class ModuleViewLocator : IViewLocationExpander
     {
