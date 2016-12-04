@@ -25,6 +25,9 @@ namespace CoreWeb1.Data
     /// Client side data model.
     /// This can be shared......
     /// </summary>
+    /// <remarks>
+    /// Because Unity json serializer does not know how to deserialize arrays.
+    /// </remarks>
     public class ScoreModelContainer
     {
         public ScoreModel[] Scores { get; set; }
