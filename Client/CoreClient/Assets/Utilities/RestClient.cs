@@ -59,7 +59,14 @@ public class RestClient
 
     public static UnityWebRequest Post(string url, string payload)
     {
-        var task = UnityWebRequest.Post(url, payload);
+        UnityWebRequest task = new UnityWebRequest(url, "POST");
+        task.uploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(payload));
+        task.uploadHandler.contentType = "application/json";
+        task.downloadHandler = new DownloadHandlerBuffer();
+        ApplyHeaders(task);
+        return task;
+        // Media type wrong by default.
+        //var task = UnityWebRequest.Post(url, payload);
         ApplyHeaders(task);
         return task;
     }
